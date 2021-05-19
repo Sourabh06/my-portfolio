@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "../client.js";
-import dice from "../dice.jpg";
+import dice from "../img/dice.jpg";
+import cmp_dice from "../img/dice.webp";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 
@@ -29,7 +30,12 @@ export default function About() {
 
   return (
     <main className="relative">
-      <img src={dice} alt="Throwing Dice" className="absolute w-full" />
+      <picture>
+        <source srcset={cmp_dice} type="image/webp" />
+        <source srcset={dice} type="image/jpeg" />
+        <img src={dice} alt="Throwing Dice" className="absolute w-full" />
+      </picture>
+
       <div className="p-10 lg:pt-48 container mx-auto relative">
         <section className="bg-green-800 rounded-lg shadow-2xl lg:flex p-20 opacity-75">
           <img
